@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using CodingChallenge;
+
+
+var machine = new Machine("Roberto");
+var employee1 = new Employee("Alice", "Engineer");
