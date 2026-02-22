@@ -2,12 +2,14 @@ namespace CodingChallenge;
 public class Machine : Subject
 {
     public string Name { get; }
+
     public Machine(string name)
     {
         Name = name;
+        State = MachineState.Idle.ToString(); // directly set the initial state to Idle as this is initialization and not a change to be notifiedd.
     }
-    public void ChangeState(string state)
+    public void SetState(MachineState state)
     {
-        NotifyAllObservers(state, Name);
+        SetState(state.ToString());
     }
 }

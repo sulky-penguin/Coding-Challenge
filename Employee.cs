@@ -9,6 +9,6 @@ class Employee : Observer
     }
     public override void Update(string state, string from)
     {
-        Console.WriteLine($"My name is {Name} with role {Role} and Ireceived update from {from}: {state}");
+        Console.WriteLine($"My name is {Name} with role {Role} and I received update from {from}: {state}");
     }
 }

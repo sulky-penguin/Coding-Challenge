@@ -3,6 +3,8 @@ namespace CodingChallenge;
 public abstract class Subject
 {
     private List<Observer> _observers = new List<Observer>();
+    public string State { get; protected set; } = "";
+
     public void Attach(Observer observer)
     {
         _observers.Add(observer);
@@ -11,11 +13,16 @@ public abstract class Subject
     {
         _observers.Remove(observer);
     }
-    public void NotifyAllObservers(string state, string from)
+    public void SetState(string state)
+    {
+        State = state;
+        NotifyAllObservers();
+    }
+    public void NotifyAllObservers()
     {
         foreach (var observer in _observers)
         {
-            observer.Update(state, from);
+            observer.Update(State, this.GetType().Name);
         }
     }
 }
