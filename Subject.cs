@@ -13,16 +13,20 @@ public abstract class Subject
     {
         _observers.Remove(observer);
     }
-    public void SetState(string state)
+    public void SetState(string state, string name)
     {
+        // Was not specifically mentioned in the requirements but it seems logical to only notify observers if the state has actually changed.
+        if (State == state)
+            return; 
+            
         State = state;
-        NotifyAllObservers();
+        NotifyAllObservers(name);
     }
-    public void NotifyAllObservers()
+    public void NotifyAllObservers(string name) 
     {
         foreach (var observer in _observers)
         {
-            observer.Update(State, this.GetType().Name);
+            observer.Update(State, name);
         }
     }
 }

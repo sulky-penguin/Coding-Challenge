@@ -1,6 +1,6 @@
 namespace CodingChallenge;
 
-class Employee : Observer
+public class Employee : Observer
 {
     public string Role { get; }
     public Employee(string name, string role) : base(name)

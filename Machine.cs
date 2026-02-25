@@ -3,6 +3,7 @@ public class Machine : Subject
 {
     public string Name { get; }
 
+
     public Machine(string name)
     {
         Name = name;
@@ -10,6 +11,6 @@ public class Machine : Subject
     }
     public void SetState(MachineState state)
     {
-        SetState(state.ToString());
+        SetState(state.ToString(), Name);
     }
 }
